@@ -12,4 +12,4 @@ $mc->set('key','value',0,10);
 $val = $mc->get('key');
 $mc->delete('key');
 $mc->flush();
-$mc->close();
+//$mc->close();
