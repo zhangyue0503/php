@@ -6,7 +6,7 @@
  * Time: 下午2:44
  */
 
-$mc = new emcached();
+$mc = new Memcached();
 $mc->addServer('127.0.0.1',11211);
 $mc->set('key','value',0,10);
 $val = $mc->get('key');
