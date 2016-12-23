@@ -24,7 +24,7 @@ foreach($xml->channel->item as $item){
 }
 
 $animals = new SimpleXMLElement('</animals>');
-$animals->{0} = 'Hello World';''''''
+$animals->{0} = 'Hello World';
 
 $animals->asXML('animals.xml');
 var_dump(simplexml_load_file('animals.xml'));
