@@ -1,0 +1,13 @@
+# Script 2.7 - .htaccess
+<IfModule mod_rewrite.c>
+
+# Turn on the engine:
+RewriteEngine on
+
+# Set the base to this directory:
+RewriteBase /shenrulijiephp/2/
+
+# Redirect certain paths to index.php:
+RewriteRule ^(about|contact|this|that|search)/?$ index.php?p=$1
+
+</IfModule>

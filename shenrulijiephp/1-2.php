@@ -17,7 +17,7 @@ function make_list($parent){
     echo '<ol>';
     foreach($parent as $task_id =>$todo){
 //        echo "<li>$todo";
-        echo <<<
+        echo <<<EOT
 <li><input type="checkbox" name="$tasks[$task_id]" value="done"> $todo
 EOT;
 
