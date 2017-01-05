@@ -1,0 +1,13 @@
+<!-- # index.html - Script 9.8 -->
+<section class="threeColumns">
+<?php // Fetch the results and display them:
+while ($page = $r->fetch()) {
+    echo "<article>
+    <h1><span>{$page->getDateAdded()}</span>{$page->getTitle()}</h1>
+    <p>{$page->getIntro()}</p>
+    <p><a href=\"page.php?id={$page->getId()}\">read more here...</a></p>
+    </article>
+    ";
+}
+?>
+</section>
