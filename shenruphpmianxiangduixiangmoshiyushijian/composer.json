@@ -1,0 +1,12 @@
+{
+    "name": "zhangyue/shenruphpmianxiangduixiangmoshiyushijian",
+    "authors": [
+        {
+            "name": "zhangyue0503",
+            "email": "zhangyue0503@hotmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^5.7"
+    }
+}
