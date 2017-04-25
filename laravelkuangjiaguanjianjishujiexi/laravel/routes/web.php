@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'WebController@index');
+Route::controllers([
+	'Web' => 'WebController'
+]);
+Route::controllers([
+	'webauth'     => 'Auth\WebAuthController',
+	'webpassword' => 'Auth\WebPasswordController'
+]);
+
