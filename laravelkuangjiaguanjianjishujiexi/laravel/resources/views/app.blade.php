@@ -39,7 +39,7 @@
                         </li>
                     @endif
                 </ul>
-            </d
+            </div>
         </div>
     </nav>
 @yield('content')
