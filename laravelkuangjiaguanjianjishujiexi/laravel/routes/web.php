@@ -16,11 +16,11 @@
 //});
 
 Route::get('/', 'WebController@index');
-Route::controllers([
-	'Web' => 'WebController'
-]);
+//Route::controllers([
+//	'Web' => 'WebController'
+//]);
 Route::controllers([
 	'webauth'     => 'Auth\WebAuthController',
-	'webpassword' => 'Auth\WebPasswordController'
+//	'webpassword' => 'Auth\WebPasswordController'
 ]);
 

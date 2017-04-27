@@ -37,7 +37,7 @@ class WebAuthController extends Controller
 			'username'=>$data['username'],
 			'account'=>$data['account'],
 			'password'=>bcrypt($data['password']),
-			'addtime'=>time()
+			'addtime'
 		]);
 	}
 }
