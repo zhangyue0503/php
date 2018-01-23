@@ -1,0 +1,14 @@
+{
+    "name": "administrator/phpunit",
+    "authors": [
+        {
+            "name": "zhangyue",
+            "email": "zhangyue@dyrs.com.cn"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "phpunit/dbunit": "^3.0"
+    }
+}
