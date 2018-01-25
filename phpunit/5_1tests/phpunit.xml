@@ -1,0 +1,9 @@
+<phpunit bootstrap="vendor\autoload.php">
+    <testsuites>
+        <testsuites name="money">
+            <!--<dictory>./</dictory>-->
+            <file>StackTest.php</file>
+            <file>StackTest4.php</file>
+        </testsuites>
+    </testsuites>
+</phpunit>
