@@ -28,7 +28,7 @@ class Server
         $this->serv->on('Connect', [$this, 'onConnect']);
         $this->serv->on('Receive', [$this, 'OnReceive']);
         $this->serv->on('Close', [$this, 'onClose']);
-        $this->serv->on('Timer', [$this, 'onTimer']);
+        $this->serv->on('Timer', [$this, 'onTimer']);//新版本已经不用addtimer方法了
 
         $this->serv->start();
     }
@@ -58,13 +58,14 @@ class Server
         echo "onWorkerStart\n";
         //只有当worker_id为0时才添加定时器，避免重复添加
         if ($worker_id == 0) {
+            //新版本已经不用addtimer()了
 //            $serv->addtimer(100);
 //            $serv->addtimer(500);
 //            $serv->addtimer(1000);
             swoole_timer_tick(100, function ($timer_id) {
                 echo "tick-100ms\n";
             });
-            swoole_timer_after(500, function ($timer_id) {
+            swoole_timer_tick(500, function ($timer_id) {
                 echo "tick-500ms\n";
             });
             swoole_timer_tick(1000, function ($timer_id) {
