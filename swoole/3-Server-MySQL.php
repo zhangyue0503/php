@@ -62,7 +62,7 @@ class Server
         //在Worker进程开启时绑定定时器
         echo "onWorkerStart\n";
         //判定是否为Task Worker进程
-        if ($worker_id >= $serv->seeting['worker_num']) {
+        if ($worker_id >= $serv->setting['worker_num']) {
             $this->pdo = new PDO(
                 "mysql:host=localhost;port=3306;dbname=Test",
                 "root", "", [
