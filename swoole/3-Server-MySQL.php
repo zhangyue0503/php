@@ -80,7 +80,7 @@ class Server
         echo "Get Message From Client {$fd}:{$data}\n";
 
         $sql = [
-            'sql'   => 'Insert into Test values(pid=?,name=?)',
+            'sql'   => 'Insert into test values(pid=?,name=?)',
             'param' => [
                 0, "'name'"
             ],
