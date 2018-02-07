@@ -42,7 +42,7 @@ class Client
 
     public function onConnect($cli)
     {
-        $cli-<send("Get");
+        $cli->send("Get");
         $this->time = time();
     }
 
