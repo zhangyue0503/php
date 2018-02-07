@@ -1,0 +1,5 @@
+CREATE TABLE `test` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
