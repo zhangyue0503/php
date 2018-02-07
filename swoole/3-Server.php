@@ -5,7 +5,7 @@
  * Date: 2018/2/6
  * Time: 9:55
  */
-//https://github.com/LinkedDestiny/swoole-doc/blob/master/02-Swoole的Task使用以及swoole_client.md
+//https://github.com/LinkedDestiny/swoole-doc/blob/master/03.Timer定时器、心跳检测及Task进阶实例：mysql连接池.md
 
 class Server
 {
@@ -58,9 +58,19 @@ class Server
         echo "onWorkerStart\n";
         //只有当worker_id为0时才添加定时器，避免重复添加
         if ($worker_id == 0) {
-            $serv->addtimer(100);
-            $serv->addtimer(500);
-            $serv->addtimer(1000);
+//            $serv->addtimer(100);
+//            $serv->addtimer(500);
+//            $serv->addtimer(1000);
+            swoole_timer_tick(100, function ($timer_id) {
+                echo "tick-100ms\n";
+            });
+            swoole_timer_after(500, function ($timer_id) {
+                echo "tick-500ms\n";
+            });
+            swoole_timer_tick(1000, function ($timer_id) {
+                echo "tick-1000ms\n";
+            });
+
         }
     }
 
