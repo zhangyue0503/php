@@ -41,6 +41,7 @@ class Server
     {
         $info = $serv->connection_info($fd, $from_id);
         //来自9502的内网管理接口
+        print_r($info);
         if ($info['from_port'] == 9502) {
             $serv->send($fd, "welcome admin\n");
         } else {
