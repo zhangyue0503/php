@@ -54,7 +54,7 @@ class Server
         $serv->after(1000, [$this, 'onAfter'], $str);
     }
 
-    public function After($data)
+    public function onAfter($data)
     {
         $param = json_decode($data, true);
         $this->serv->send($param['fd'], $param['msg']);
