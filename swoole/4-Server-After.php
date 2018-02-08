@@ -26,15 +26,10 @@ class Server
         $this->serv->on('Connect', [$this, 'onConnect']);
         $this->serv->on('Receive', [$this, 'OnReceive']);
         $this->serv->on('Close', [$this, 'onClose']);
-        $this->serv->on('Timer', [$this, 'onTimer']);//新版本已经不用addtimer方法了
 
         $this->serv->start();
     }
 
-    public function onTimer($serv, $interval)
-    {
-        echo 111;
-    }
 
 
     public function onStart($serv)
