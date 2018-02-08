@@ -37,7 +37,7 @@ class Server
     }
 
 
-    public function onStart($serv, $worker_id)
+    public function onStart($serv)
     {
         echo "Start\n";
     }
