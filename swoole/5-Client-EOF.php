@@ -23,11 +23,11 @@ class Client
 
         $msg_normal = "This is a Msg";
         $msg_eof = "This is a Msg\r\n";
-        $msg_length = pack("N", strlen($msg_normal)) . $msg_normal;
+//        $msg_length = pack("N", strlen($msg_normal)) . $msg_normal;
 
         $i = 0;
         while ($i < 100) {
-            $this->client->send($msg_length);
+            $this->client->send($msg_eof);
             $i++;
         }
 
