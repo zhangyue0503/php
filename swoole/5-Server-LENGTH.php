@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2018/2/6
  * Time: 9:55
  */
-
 class Server
 {
     private $serv;
@@ -14,14 +14,16 @@ class Server
     {
         $this->serv = new swoole_server('0.0.0.0', 9501);
         $this->serv->set([
-            'worker_num'         => 8,
-            'daemonize'          => false,
-            'max_request'        => 10000,
-            'dispatch_mode'      => 2,
-            'debug_mode'         => 1,
-            'package_max_length' => 8192,
-            'open_eof_check'     => true,
-            'package_eof'        => "\r\n"
+            'worker_num'            => 8,
+            'daemonize'             => false,
+            'max_request'           => 10000,
+            'dispatch_mode'         => 2,
+            'debug_mode'            => 1,
+            'package_max_length'    => 8192,
+            'open_length_check'     => true,
+            'package_length_offset' => 0,
+            'package_body_offset'   => 4,
+            'package_length_type'   => 'N',
         ]);
 
         $this->serv->on('Start', [$this, 'onStart']);
@@ -40,17 +42,15 @@ class Server
 
     public function onReceive(swoole_server $serv, $fd, $from_id, $data)
     {
-        $data_list = explode("\r\n", $data);
-        foreach($data_list as $msg){
-            if(!empty($msg)){
-                echo "Get Message From Client {$fd}:{$msg}\n";
-            }
-        }
+        $length = unpack("N", $data)[1];
+        echo "Length = {$length}\n";
+        $msg = substr($data, -$length);
+        echo "Get Message From Client {$fd}:{$msg}\n";
     }
 
     public function onConnect($serv, $fd, $from_id)
     {
-        $serv->send($fd, "Hello {$fd}!");
+        echo "Client {$fd} connect\n";
     }
 
     function onClose($serv, $fd, $from_id)
