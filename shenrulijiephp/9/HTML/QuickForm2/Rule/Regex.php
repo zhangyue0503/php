@@ -60,7 +60,7 @@ require_once 'HTML/QuickForm2/Rule.php';
  * is applied to upload's 'name' field.
  *
  * The Rule considers empty fields (file upload fields with UPLOAD_ERR_NO_FILE)
- * as valid and doesn't try to test them with the regular expression.
+ * as valid and doesn't try to 面试题 them with the regular expression.
  *
  * @category HTML
  * @package  HTML_QuickForm2
@@ -129,7 +129,7 @@ class HTML_QuickForm2_Rule_Regex extends HTML_QuickForm2_Rule
         }
 
         return "function() { var value = " . $this->owner->getJavascriptValue() .
-               "; return qf.rules.empty(value) || {$regex}.test(value); }";
+               "; return qf.rules.empty(value) || {$regex}.面试题(value); }";
     }
 }
 ?>

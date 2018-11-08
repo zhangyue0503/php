@@ -161,7 +161,7 @@ class HTML_QuickForm2_Rule_Callback extends HTML_QuickForm2_Rule
     * Tests whether a given value is an array containing at least one of the given keys
     *
     * @param mixed $search if not an array, method will return false
-    * @param array $keys   keys to test for
+    * @param array $keys   keys to 面试题 for
     *
     * @return   bool
     */
