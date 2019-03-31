@@ -22,9 +22,10 @@ class Test
 
 $t = new Test();
 $t->showV();
-//echo $t->v; // 报错
+//echo $t->v; // 报异常
 echo Test::$v;
 //Test::showVV(); // 报异常
+$t->showVV();
 
 // php5.3起可以用一个变量来动态调用类
 $test = 'Test';
@@ -57,29 +58,29 @@ class Calculate
 }
 
 $calculate = new Calculate();
-$calculate->cacl();
-$calculate->cacl();
+$calculate->cacl(); // 1
+$calculate->cacl(); // 2
 
-Calculate::cacl2();
-Calculate::cacl2();
+Calculate::cacl2(); // 1
+Calculate::cacl2(); // 2
 
-Calculate::cacl3();
-Calculate::cacl3();
+Calculate::cacl3(); // 1
+Calculate::cacl3(); // 2
 
 // 例子，递归处理
-function test()
+function test1()
 {
     static $count = 0;
 
     $count++;
     echo $count;
     if ($count < 10) {
-        test();
+        test1();
     }
     $count--;
 }
 
-test();
+test1();
 
 
 // 引用对象问题
@@ -112,11 +113,11 @@ function getNoRefObj($o)
 }
 
 $o    = new Foo;
-$obj1 = getRefObj($o);
-$obj2 = getRefObj($o);
+$obj1 = getRefObj($o); // NULL
+$obj2 = getRefObj($o); // NULL
 
-$obj3 = getNoRefObj($o);
-$obj4 = getNoRefObj($o);
+$obj3 = getNoRefObj($o); // NULL
+$obj4 = getNoRefObj($o); // Foo
 
 // 后期静态绑定
 // self取决于当前定义方法所在的类
@@ -142,6 +143,30 @@ class B extends A
 }
 
 B::test(); // A
+
+class A1
+{
+     function who()
+    {
+        echo __CLASS__ . "\n";
+    }
+
+     function test()
+    {
+        $this->who();
+    }
+}
+
+class B1 extends A1
+{
+     function who()
+    {
+        echo __CLASS__ . "\n";
+    }
+}
+
+$b1 = new B1();
+$b1->test();
 
 // static 表示运行最初时的类，不是方法定义时的类
 // 在非静态环境下，所调用的类即为该对象实例所属的类。由于 $this-> 会在同一作用范围内尝试调用私有方法，而 static:: 则可能给出不同结果。另一个区别是 static:: 只能用于静态属性。
