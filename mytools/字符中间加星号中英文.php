@@ -11,8 +11,8 @@
 
 /**
  * @param $str 字符串
- * @param $start 开始位置
- * @param int $end 结束位置
+ * @param $start 开始位置（开关保留几个）
+ * @param int $end 结束位置（结尾保留几个）
  * @param string $dot 符号
  * @param string $charset 编码
  * @return string 加星文字
@@ -20,10 +20,16 @@
 function PassStart($str, $start, $end = 0, $dot = "*", $charset = "UTF-8")
 {
     $len = mb_strlen($str, $charset);
-    if ($start == 0 || $start > $len) {
+    if ($len < 2) {
+        return $str;
+    }
+    if($start > $len){
+        return $str;
+    }
+    if ($start == 0 ) {
         $start = 1;
     }
-    if ($end != 0 && $end > $len) {
+    if ($end > $len) {
         $end = $len - 2;
     }
     $endStart = $len - $end;
@@ -32,12 +38,8 @@ function PassStart($str, $start, $end = 0, $dot = "*", $charset = "UTF-8")
     if ($endStart > 0) {
         $bottom = mb_substr($str, $endStart, $end, $charset);
     }
-    $len = $len - mb_strlen($top, $charset);
-    $len = $len - mb_strlen($bottom, $charset);
-    $newStr = $top;
-    for ($i = 0; $i < $len; $i++) {
-        $newStr .= $dot;
-    }
-    $newStr .= $bottom;
-    return $newStr;
+    $len = $len - mb_strlen($top, $charset) - mb_strlen($bottom, $charset);
+    $len = $len > 0 ? $len : 0;
+
+    return $top . str_repeat($dot, $len) . $bottom;
 }
