@@ -28,7 +28,7 @@ foreach ($a as $v) {
 	echo $v, ',';
 }
 for ($i = 0; $i < count($a); ++$i) {
-	echo $a[$i], ',';
+	echo $a[$i], '  ,';
 }
 // 直接累加
 echo array_sum([1, 2, 3, 4, 'a']);
