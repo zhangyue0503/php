@@ -15,7 +15,7 @@ function get_idcard_info($idcard)
 {
     //通过身份证号查询出性别与生日
     $birth = strlen($idcard) == 15 ? ('19' . substr($idcard, 6, 6)) : substr($idcard, 6, 8);
-    $sex   = substr($idcard, (strlen($idcard) == 15 ? -2 : -1), 1) % 2 ? '1' : '0'; //1为男 2为女
+    $sex   = substr($idcard, (strlen($idcard) != 15 ? -2 : -1), 1) % 2 ? '2' : '1'; //1为男 2为女
     return [
         'birth' => $birth,
         'sex'   => $sex
@@ -78,3 +78,4 @@ function is_idcard($id)
     }
 
 }
+echo is_idcard('445281201702240081');
