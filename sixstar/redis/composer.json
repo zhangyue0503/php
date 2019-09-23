@@ -1,0 +1,13 @@
+{
+    "name": "zhangyue/redis",
+    "require-dev": {
+        "predis/predis": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "zhangyue0503",
+            "email": "zhangyue0503@hotmail.com"
+        }
+    ],
+    "require": {}
+}

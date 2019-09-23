@@ -59,7 +59,7 @@ $originator->ShowState();
 $caretaker = new Caretaker();
 $caretaker->setMemento($originator->CreateMemento());
 
-$originator->setState('bb');
+$originator->setState('bb'); 
 $originator->ShowState();
 
 $originator->SetMemento($caretaker->getMemento());
