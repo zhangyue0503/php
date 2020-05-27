@@ -9,7 +9,7 @@
     "require": {
         "simplepie/simplepie": "^1.4",
         "tecnickcom/tcpdf": "^6.2",
-        "phpmailer/phpmailer": "^5.2",
+        "phpmailer/phpmailer": "^6.1",
         "phpunit/phpunit": "^5.7"
     }
 }
